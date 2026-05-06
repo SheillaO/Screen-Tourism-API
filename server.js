@@ -12,6 +12,18 @@ const server = http.createServer(async (req, res) => {
   const urlObj = new URL(req.url, `http://${req.headers.host}`);
   const queryObj = Object.fromEntries(urlObj.searchParams);
 
+  if (urlObj.pathname === "/" && req.method === "GET") {
+    return sendJSONResponse(res, 200, {
+      message: "🎬 Welcome to the Screen Tourism API",
+      endpoints: {
+        all: "/api",
+        byPlatform: "/api/platform/Netflix",
+        byShow: "/api/show/Game%20of%20Thrones",
+        byContinent: "/api/continent/Europe",
+      },
+    });
+  }
+
   // ─── MAIN API ROUTE (with query params filtering) ────────────────────────
   if (urlObj.pathname === "/api" && req.method === "GET") {
     let filteredData = destinations;
