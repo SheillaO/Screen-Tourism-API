@@ -1,5 +1,5 @@
 {
-  "name": "wild-horizons",
+  "name": "screen-tourism-api",
   "version": "1.0.0",
   "description": "a dataset of the planet’s most interesting places",
   "main": "server.js",
