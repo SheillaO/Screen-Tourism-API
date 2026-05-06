@@ -15,8 +15,16 @@ const server = http.createServer(async (req, res) => {
   if (urlObj.pathname === "/" && req.method === "GET") {
     return sendJSONResponse(res, 200, {
       message: "🎬 Welcome to the Screen Tourism API",
+      description:
+        "Discover real-world filming locations from movies and TV shows",
+      version: "1.0.0",
       endpoints: {
         all: "/api",
+        filterExamples: [
+          "/api?continent=Europe",
+          "/api?platform=Netflix",
+          "/api?show=Game%20of%20Thrones",
+        ],
         byPlatform: "/api/platform/Netflix",
         byShow: "/api/show/Game%20of%20Thrones",
         byContinent: "/api/continent/Europe",
